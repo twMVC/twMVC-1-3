@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/text.css")" rel="stylesheet" type="text/css" />
+    <script src="@Url.Content("~/Scripts/jquery-1.7.2.min.js")" type="text/javascript"></script>
+    
+    <!-- 在head中保留一個可供子頁面變動的區塊 -->
+    @RenderSection("Header",false)
+
+</head>
+<body>
+    <div class="page">
+        <div id="header">
+            <div id="title">
+                
+                <!--我是標題-->
+                <h1>TW MVC</h1>
+
+            </div>
+            <div id="logindisplay">
+
+                <!-- 將Menu用Partial的方式載入 -->
+                @Html.Partial("_LogOnPartial")
+
+                <br />
+
+                <!--訊息透過Action的方式載入-->
+                @Html.Action("Notify", "Home")
+
+            </div>
+            <div id="menucontainer">
+                <ul id="menu">
+                    <li>@Html.ActionLink("首頁", "Index", "Home")</li>
+                    <li>@Html.ActionLink("新增產品", "Create", "Product")</li>
+                    <li>@Html.ActionLink("Jmpress", "Jmpress", "Home")</li>
+                    <li>@Html.ActionLink("Highcharts", "Highcharts", "Home")</li>
+                </ul>
+            </div>
+        </div>
+        <div id="main">
+            
+            <!-- 子頁面的內容會呈現在RenderBody的地方 -->
+            @RenderBody()
+
+        </div>
+        <div id="footer">
+                
+                <!--我是Footer的圖片-->
+                <img src="/images/twmvclogo.png" alt="" />
+
+        </div>
+    </div>
+</body>
+</html>

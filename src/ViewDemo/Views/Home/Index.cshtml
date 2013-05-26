@@ -1,0 +1,17 @@
+﻿@model IEnumerable<ViewDemo.Product>
+
+@section Header{
+    
+}
+
+<h2>@ViewBag.Message</h2>
+<p>
+    若要進一步了解 ASP.NET MVC，請造訪 <a href="http://asp.net/mvc" title="ASP.NET MVC 網站">http://asp.net/mvc</a>。
+</p>
+
+<ul>
+@foreach (var item in Model)
+{
+    <li>@item.Name ($@item.Price)</li>
+}
+</ul>

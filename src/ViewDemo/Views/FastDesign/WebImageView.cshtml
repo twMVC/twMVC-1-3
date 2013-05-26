@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "WebImageView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>WebImageView</h2>
+
+@{
+    //可由byte[]、filePath、Stream獲得WebImage
+    WebImage image = new WebImage(Server.MapPath("~/images/twmvclogo.png"));
+}
+<table>
+    <tr>
+        <td>說明</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>圖片名稱</td>
+        <td>@image.FileName</td>
+    </tr>
+    <tr>
+        <td>圖片高度</td>
+        <td>@image.Height</td>
+    </tr>
+    <tr>
+        <td>圖片寬度</td>
+        <td>@image.Width</td>
+    </tr>
+    <tr>
+        <td>原圖</td>
+        <td>
+            <img src="/images/twmvclogo.png" alt="" />
+        </td>
+    </tr>
+    <tr>
+        <td>縮放</td>
+        <td>
+            <img src="@Url.Action("GetImage", new { imageaction=ViewDemo.ImageAction.Resize })" alt="" />
+        </td>
+    </tr>
+    <tr>
+        <td>翻轉</td>
+        <td>
+            <img src="@Url.Action("GetImage", new { imageaction=ViewDemo.ImageAction.Flip })" alt="" />
+        </td>
+    </tr>
+    <tr>
+        <td>浮水印</td>
+        <td>
+            <img src="@Url.Action("GetImage", new { imageaction=ViewDemo.ImageAction.Watermark })" alt="" />
+        </td>
+    </tr>
+    <tr>
+        <td>剪裁</td>
+        <td>
+            <img src="@Url.Action("GetImage", new { imageaction=ViewDemo.ImageAction.Crop })" alt="" />
+        </td>
+    </tr>            
+</table>

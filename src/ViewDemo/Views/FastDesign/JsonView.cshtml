@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ViewDemo.Product>
+
+@{
+    ViewBag.Title = "JsonView";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var jsonEncode = @Json.Encode(Model);
+}
+
+<h2>JsonView</h2>
+<table>
+    <tr>
+        <td>方法</td>
+        <td>說明</td>
+        <td>值</td>
+    </tr>
+    <tr>
+        <td>Json.Encode(object)</td>
+        <td>序列化成Json</td>
+        <td>@jsonEncode</td>
+    </tr>
+    <tr>
+        <td>Json.Decode(string)</td>
+        <td>反序列化回物件</td>
+        <td>@(Json.Decode<List<ViewDemo.Product>>(jsonEncode)[0].Name)</td>
+    </tr>
+</table>

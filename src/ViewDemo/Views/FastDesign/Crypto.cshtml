@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "Crypto";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section header{
+
+}
+<h2>Crypto</h2>
+
+
+<table>
+    <tr>
+        <td>方法</td>
+        <td>說明</td>
+        <td>值</td>
+    </tr>
+    <tr>
+        <td>Crypto.GenerateSalt()</td>
+        <td>產生Salt</td>
+        <td>@Crypto.GenerateSalt()</td>
+    </tr>
+    <tr>
+        <td>Crypto.Hash("TW MVC")</td>
+        <td>Hash with sha256</td>
+        <td>@Crypto.Hash("TW MVC")</td>
+    </tr>
+    <tr>
+        <td>Crypto.Hash("TW MVC","md5")</td>
+        <td>Hash with md5</td>
+        <td>@Crypto.Hash("TW MVC", "md5")</td>
+    </tr>
+    <tr>
+        <td>Crypto.SHA256("TW MVC")</td>
+        <td>Hash with sha256</td>
+        <td>@Crypto.SHA256("TW MVC")</td>
+    </tr>
+    <tr>
+        <td>Crypto.HashPassword("TW MVC")</td>
+        <td>HashPassword</td>
+        <td>@Crypto.HashPassword("TW MVC")</td>
+    </tr>
+</table>
+

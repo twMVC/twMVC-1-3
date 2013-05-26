@@ -1,0 +1,17 @@
+﻿@model IEnumerable<ViewDemo.Product>
+@{
+    ViewBag.Title = "WebGrid";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section header{
+
+}
+
+
+<h2>WebGrid</h2>
+<div id="Grid">
+    @{ 
+        @(new WebGrid(Model,rowsPerPage: 5,ajaxUpdateContainerId: "Grid",sortFieldName:"Id").GetHtml())
+    }
+    @*@Html.CustomGrid()*@
+</div>
